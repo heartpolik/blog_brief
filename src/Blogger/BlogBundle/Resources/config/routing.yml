@@ -1,0 +1,12 @@
+blogger_blog_homepage:
+    path:     /
+    defaults: { _controller: BloggerBlogBundle:Page:index }
+    requirements:
+      methods: GET
+
+# src/Blogger/BlogBundle/Resources/config/routing.yml
+BloggerBlogBundle_about:
+    path:   /about
+    defaults: { _controller: BloggerBlogBundle:Page:about }
+    requirements:
+        methods:  GET
