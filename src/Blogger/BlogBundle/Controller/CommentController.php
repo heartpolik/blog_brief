@@ -27,7 +27,7 @@ class CommentController extends Controller
         ));
     }
 
-    public function createAction(Request $request, $blog_id)
+    public function createAction($blog_id)
     {
         $blog = $this->getBlog($blog_id);
 
@@ -44,7 +44,8 @@ class CommentController extends Controller
             $em->flush();
 
             return $this->redirect($this->generateUrl('BloggerBlogBundle_blog_show', array(
-                    'id' => $comment->getBlog()->getId())) .
+                    'id'    => $comment->getBlog()->getId(),
+                    'slug'  => $comment->getBlog()->getSlug())) .
                 '#comment-' . $comment->getId()
             );
         }
